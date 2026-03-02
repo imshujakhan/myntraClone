@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { bagActions } from "../store/BagSlice";
+import { bagActions } from "../store/bagSlice";
 import { IoMdClose } from "react-icons/io";
 import styles from "./BagItem.module.css";
 

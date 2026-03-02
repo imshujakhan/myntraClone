@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { bagActions } from "../store/BagSlice";
+import { bagActions } from "../store/bagSlice";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { memo, useState } from "react";
 import styles from "./HomeItem.module.css";
