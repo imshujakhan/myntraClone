@@ -1,8 +1,10 @@
+import styles from "./Footer.module.css";
+
 const Footer = () => {
   return (
     <footer>
-      <div className="footer_container">
-        <div className="footer_column">
+      <div className={styles.container}>
+        <div className={styles.column}>
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -14,7 +16,7 @@ const Footer = () => {
           <a href="#">Myntra Insider</a>
         </div>
 
-        <div className="footer_column">
+        <div className={styles.column}>
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -26,7 +28,7 @@ const Footer = () => {
           <a href="#">Myntra Insider</a>
         </div>
 
-        <div className="footer_column">
+        <div className={styles.column}>
           <h3>ONLINE SHOPPING</h3>
 
           <a href="#">Men</a>
@@ -40,7 +42,7 @@ const Footer = () => {
       </div>
       <hr />
 
-      <div className="copyright">
+      <div className={styles.copyright}>
         © 2023 www.myntra.com. All rights reserved.
       </div>
     </footer>

@@ -1,0 +1,46 @@
+.priceHeader {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 20px 0 15px;
+  color: #535766;
+}
+
+.priceItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #282c3f;
+}
+
+.discount {
+  color: #03a685;
+}
+
+.priceFooter {
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 16px;
+  border-top: 2px solid #eaeaec;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.placeOrderBtn {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  padding: 18px;
+  background-color: #ff3f6c;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.placeOrderBtn:hover {
+  background-color: #e63660;
+}

@@ -2,13 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const bagSlice = createSlice({
   name: "bag",
-  initialState: [],
+  initialState: {},
   reducers: {
     addToBag: (state, action) => {
-      state.push(action.payload);
+      state[action.payload] = 1;
     },
     removeToBag: (state, action) => {
-      return state.filter((item) => item !== action.payload);
+      delete state[action.payload];
+    },
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      state[id] = quantity;
     },
   },
 });

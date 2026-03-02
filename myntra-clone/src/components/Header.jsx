@@ -2,53 +2,69 @@ import { BsPersonFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { BsBagFill } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { filterActions } from "../store/filterSlice";
+import styles from "./Header.module.css";
+
 const Header = () => {
   const bag = useSelector((store) => store.bag);
+  const bagCount = Object.keys(bag).length;
+  const searchQuery = useSelector((store) => store.filter.searchQuery);
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    dispatch(filterActions.setSearchQuery(e.target.value));
+  };
+
+  const handleCategoryClick = (category) => {
+    dispatch(filterActions.setCategory(category));
+    dispatch(filterActions.setSearchQuery(""));
+  };
 
   return (
-    <header>
-      <div className="logo_container">
+    <header className={styles.header}>
+      <div>
         <Link to="/">
           <img
-            className="myntra_home"
+            className={styles.logo}
             src="../images/myntra_logo.webp"
             alt="Myntra Home"
           />
         </Link>
       </div>
-      <nav className="nav_bar">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
+      <nav className={styles.navBar}>
+        <Link to="/" onClick={() => handleCategoryClick("Men")}>Men</Link>
+        <Link to="/" onClick={() => handleCategoryClick("Women")}>Women</Link>
+        <Link to="/" onClick={() => handleCategoryClick("Kids")}>Kids</Link>
         <a href="#">Home & Living</a>
         <a href="#">Beauty</a>
         <a href="#">
           Studio <sup>New</sup>
         </a>
       </nav>
-      <div className="search_bar">
-        <span className="material-symbols-outlined search_icon">search</span>
+      <div className={styles.searchBar}>
         <input
-          className="search_input"
+          className={styles.searchInput}
           placeholder="Search for products, brands and more"
+          value={searchQuery}
+          onChange={handleSearch}
         />
       </div>
-      <div className="action_bar">
-        <div className="action_container">
-          <BsPersonFill className="action_icon" />
-          <span className="action_name">Profile</span>
+      <div className={styles.actionBar}>
+        <div className={styles.actionContainer}>
+          <BsPersonFill className={styles.actionIcon} />
+          <span className={styles.actionName}>Profile</span>
         </div>
 
-        <div className="action_container">
-          <FaHeart className="action_icon" />
-          <span className="action_name">Wishlist</span>
+        <div className={styles.actionContainer}>
+          <FaHeart className={styles.actionIcon} />
+          <span className={styles.actionName}>Wishlist</span>
         </div>
 
-        <Link className="action_container" to="/bag">
-          <BsBagFill className="action_icon" />
-          <span className="action_name">Bag</span>
-          <span className="bag-item-count">{bag.length}</span>
+        <Link className={styles.actionContainer} to="/bag">
+          <BsBagFill className={styles.actionIcon} />
+          <span className={styles.actionName}>Bag</span>
+          {bagCount > 0 && <span className={styles.bagCount}>{bagCount}</span>}
         </Link>
       </div>
     </header>
