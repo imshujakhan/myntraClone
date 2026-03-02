@@ -13,11 +13,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.json({ message: "Myntra Clone API - Use /items endpoint" });
+});
+
 app.get("/items", (req, res) => {
   const data = JSON.parse(fs.readFileSync('items.json', 'utf-8'));
   res.json({ items: data.items });
 });
 
-app.listen(8080, () => {
-  console.log('Server running on port 8080');
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
