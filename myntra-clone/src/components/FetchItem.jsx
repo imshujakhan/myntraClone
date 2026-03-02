@@ -11,7 +11,7 @@ const FetchItems = () => {
     if (fetchStatus.fetchDone) return;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch("https://myntraclone-cxhq.onrender.com/")
+    fetch("https://myntraclone-cxhq.onrender.com/items")
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());
