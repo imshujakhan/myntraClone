@@ -11,7 +11,7 @@ const FetchItems = () => {
     if (fetchStatus.fetchDone) return;
 
     dispatch(fetchStatusActions.markFetchingStarted());
-    fetch("http://localhost:8080/items")
+    fetch("https://myntraclone-cxhq.onrender.com/items")
       .then((res) => res.json())
       .then(({ items }) => {
         dispatch(fetchStatusActions.markFetchDone());

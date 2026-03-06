@@ -1,6 +1,9 @@
 # Myntra Clone
 
-An e-commerce shopping application inspired by Myntra, featuring product browsing and shopping cart functionality.
+A full-stack e-commerce application inspired by Myntra, featuring product browsing and shopping cart functionality.
+
+## Author
+Shuja Khan
 
 ## Features
 
@@ -8,6 +11,7 @@ An e-commerce shopping application inspired by Myntra, featuring product browsin
 - Add/remove items to shopping bag
 - Shopping cart with quantity management
 - Order summary with price breakdown
+- Category-based filtering
 - Responsive design
 - Loading states and spinners
 
@@ -59,3 +63,6 @@ myntra-clone/
 ## API
 
 Backend serves product data via REST API at `http://localhost:8080/items`
+
+## License
+ISC

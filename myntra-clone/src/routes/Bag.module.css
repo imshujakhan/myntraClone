@@ -1,0 +1,38 @@
+.bagPage {
+  width: 80%;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.bagItems {
+  flex: 2;
+  min-width: 0;
+  max-width: 600px;
+}
+
+.bagSummary {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.emptyBag {
+  text-align: center;
+  padding: 100px 20px;
+  width: 100%;
+}
+
+.emptyBag h2 {
+  font-size: 28px;
+  color: #282c3f;
+  margin-bottom: 10px;
+}
+
+.emptyBag p {
+  font-size: 16px;
+  color: #7e818c;
+}

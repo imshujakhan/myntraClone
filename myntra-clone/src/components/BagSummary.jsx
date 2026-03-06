@@ -1,51 +1,51 @@
 import { useSelector } from "react-redux";
+import styles from "./BagSummary.module.css";
 
 const BagSummary = () => {
   const CONVENIENCE_FEES = 99;
-  const bagItemIds = useSelector((store) => store.bag);
+  const bag = useSelector((store) => store.bag);
   const items = useSelector((store) => store.items);
-  const finalItems = items.filter((item) => {
-    const itemIndex = bagItemIds.indexOf(item.id);
-    return itemIndex >= 0;
-  });
+  
+  const finalItems = items.filter((item) => bag[item.id]);
 
-  let totalItem = bagItemIds.length;
+  let totalItem = Object.values(bag).reduce((sum, qty) => sum + qty, 0);
   let totalMRP = 0;
   let totalDiscount = 0;
 
-  finalItems.forEach((bagItem) => {
-    totalMRP += bagItem.original_price;
-    totalDiscount += bagItem.original_price - bagItem.current_price;
+  finalItems.forEach((item) => {
+    const quantity = bag[item.id];
+    totalMRP += item.original_price * quantity;
+    totalDiscount += (item.original_price - item.current_price) * quantity;
   });
 
   let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
 
   return (
     <div>
-      <div className="bag-details-container">
-        <div className="price-header">PRICE DETAILS ({totalItem} Items) </div>
-        <div className="price-item">
-          <span className="price-item-tag">Total MRP</span>
-          <span className="price-item-value">₹{totalMRP}</span>
+      <div>
+        <div className={styles.priceHeader}>PRICE DETAILS ({totalItem} Items) </div>
+        <div className={styles.priceItem}>
+          <span>Total MRP</span>
+          <span>₹{totalMRP}</span>
         </div>
-        <div className="price-item">
-          <span className="price-item-tag">Discount on MRP</span>
-          <span className="price-item-value priceDetail-base-discount">
+        <div className={styles.priceItem}>
+          <span>Discount on MRP</span>
+          <span className={styles.discount}>
             -₹{totalDiscount}
           </span>
         </div>
-        <div className="price-item">
-          <span className="price-item-tag">Convenience Fee</span>
-          <span className="price-item-value">₹99</span>
+        <div className={styles.priceItem}>
+          <span>Convenience Fee</span>
+          <span>₹99</span>
         </div>
         <hr />
-        <div className="price-footer">
-          <span className="price-item-tag">Total Amount</span>
-          <span className="price-item-value">₹{finalPayment}</span>
+        <div className={styles.priceFooter}>
+          <span>Total Amount</span>
+          <span>₹{finalPayment}</span>
         </div>
       </div>
-      <button className="btn-place-order">
-        <div className="css-xjhrni">PLACE ORDER</div>
+      <button className={styles.placeOrderBtn}>
+        <div>PLACE ORDER</div>
       </button>
     </div>
   );

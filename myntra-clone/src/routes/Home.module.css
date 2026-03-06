@@ -1,0 +1,25 @@
+.homePage {
+  display: flex;
+  max-width: 100%;
+  margin: 20px 0;
+  gap: 30px;
+  padding: 0 20px 0 0;
+}
+
+.productsSection {
+  flex: 1;
+}
+
+.itemsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 20px;
+  color: #7e818c;
+}

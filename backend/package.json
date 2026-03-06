@@ -1,13 +1,13 @@
 {
   "name": "myntra-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Myntra Clone Backend API",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["myntra", "ecommerce", "api"],
+  "author": "Shuja",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
