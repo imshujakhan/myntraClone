@@ -1,16 +1,61 @@
-# React + Vite
+# Myntra Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An e-commerce shopping application inspired by Myntra, featuring product browsing and shopping cart functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product catalog with images and pricing
+- Add/remove items to shopping bag
+- Shopping cart with quantity management
+- Order summary with price breakdown
+- Responsive design
+- Loading states and spinners
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite
+- Redux Toolkit (state management)
+- React Router (navigation)
+- Bootstrap 5 (UI framework)
+- React Icons
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+npm install
+
+# Start frontend
+npm run dev
+
+# Start backend (in separate terminal)
+cd backend
+npm install
+npm start
+```
+
+Frontend: `http://localhost:5173`  
+Backend: `http://localhost:8080`
+
+## Project Structure
+
+```
+myntra-clone/
+├── src/
+│   ├── components/    # UI components (Header, Footer, BagItem)
+│   ├── routes/        # Pages (Home, Bag)
+│   └── store/         # Redux slices (items, bag, fetchStatus)
+└── backend/
+    ├── data/          # Product data
+    └── app.js         # Express server
+```
+
+## Redux Store
+
+- **itemsSlice**: Product catalog
+- **bagSlice**: Shopping cart items
+- **fetchStatusSlice**: API loading states
+
+## API
+
+Backend serves product data via REST API at `http://localhost:8080/items`
